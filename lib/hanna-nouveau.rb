@@ -16,7 +16,6 @@ require 'haml'
 require 'sass'
 require 'rdoc/rdoc'
 require 'rdoc/generator'
-require 'parser/current'
 
 class RDoc::Markup::ToHtml
   LIST_TYPE_TO_HTML[:LABEL] = ['<table class="rdoc-list label-list"><tbody>', '</tbody></table>']
@@ -45,13 +44,8 @@ class RDoc::Markup::ToHtml
   end
 
   def parseable? text
-    parser = Parser::CurrentRuby.new
-    parser.diagnostics.consumer = lambda{|d|}
-    buffer = Parser::Source::Buffer.new('(string)')
-    buffer.source = text
-    parser.parse(buffer)
-    true
-  rescue
+    eval("BEGIN {return true}\n#{text}")
+  rescue SyntaxError
     false
   end
 end
