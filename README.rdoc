@@ -11,7 +11,7 @@ Hanna gem is available from http://rubygems.org:
 
     gem install hanna-nouveau
 
-The template was created by {Mislav}[http://mislav.caboo.se/] and since then
+The template was created by {Mislav}[http://mislav.uniqpath.com/] and since then
 has seen contributions from:
 
 1. {Tony Strauss}[http://github.com/DesigningPatterns], who participated from
